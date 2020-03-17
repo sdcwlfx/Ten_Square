@@ -1,0 +1,32 @@
+#该微服务端口号
+server:
+  port: 9004
+
+spring:
+  application:
+    name: tensquare-article #指定服务名
+  #数据库连接
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.112.131:3306/tensquare_article?characterEncoding=utf-8
+    username: root
+    password: root
+
+#mybatis 配置
+Mybatis-plus:
+  #试题扫描，多个package用逗号或者分好分割
+  typeAliasesPackage: com.tensquare.article.pojo
+  global-config:
+    id-type: 1 #0：数据库id自增，1: 用户输入id
+    db-column-underline: false #列的下划线
+    refresh-mapper: true
+    configuration:
+      map-underscore-to-camel-case: true
+      cache-enabled: true #配置的缓存的全局开关
+      lazyLoadingEnabled: true #懒加载开关
+      multipleResultSetsEnabled: true #开启延迟加载，否则按需加载
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句，用于调试
+
+
+
+
